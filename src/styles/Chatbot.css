@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+body {
+    color: #000000;
+    font-family: Outfit;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.logo {
+    width: 130px;
+}
+section{
+  background: url(../images/chatbot-background.webp);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+a {
+    word-wrap: break-word;
+}
+#chat-bot h2 span{
+	color: #2d90c3;
+}
+#chat-bot .form-control{
+	background-color: #000;
+}
+
+#chat-bot {
+    padding-top: 50px !important;
+    height: calc(100vh - 32px);
+    overflow-y: auto; 
+    position: relative;
+    font-family: Outfit; 
+    overflow-x: hidden;
+}
+
+.chat-bot {
+    height: 100%;
+    /* display: flex; */
+}
+
+.bot-img {
+    width: 45px;
+    height: 45px;
+}
+
+.cb-img {
+    width: 75px;
+    height: 75px;
+}
+
+ul.cs-list {
+    display: contents;
+    list-style: none;
+}
+
+.cs-list li {
+	border-radius: 50px;
+    padding: 15px 30px;
+    margin: 8px 15px 8px 0;
+    /*background-color: #292929;*/
+	background-image: linear-gradient(45deg, #c655ef, #5861f0);
+    color: #fff;
+    cursor: pointer;
+}
+
+#chat-bot h2, #chat-bot h5{
+	color:#fff;
+}
+
+.cs-list li:hover{
+	color: #000;
+	background-image: linear-gradient(45deg, #fff, #fff);
+}
+
+/* .cs-list li a {
+    color: #000000;
+}
+
+.cs-list li:hover a {
+    color: #fff;
+} */
+
+.cs-list li.disabled {
+    opacity: 0.5; /* Make the button look visually disabled */
+    cursor: no-drop;
+}
+
+.search-bar.input-group {
+    background-color: #C7ECFF;
+    position: relative;
+    padding: 15px;
+    border-radius: 50px;
+}
+
+input.sr-btn {
+    border: 1px solid #2B90C2;
+    padding: 0 50px 0 20px;
+    border-radius: 50px!important;
+    height: 55px!important;
+}
+.search-bar.input-group input:focus {
+    z-index: 1;
+}
+
+.send-btn {
+    position: absolute;
+    right: 24px;
+    top: 0;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    bottom: 0;
+    margin: auto;
+    border: none;
+    background: none;
+}
+
+
+
+.send-btn i {
+    color: #fff;
+    font-size: 20px;
+}
+
+/* new added css */
+
+  /* Loader */
+.loader {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.loader .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: wave 1.5s infinite;
+}
+
+.loader .dot:nth-child(1) {
+    animation-delay: 0s;
+}
+.loader .dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.loader .dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/* Styling for bot message */
+.bot-message {
+    background-color: #C7ECFF;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin: 0px 0;
+    max-width: 80%;
+    align-self: flex-start;
+}
+
+.textarea-div {
+    position: fixed;
+    bottom: 20px;
+    left: 0px;
+}
+
+/* Styling for textarea container */
+.textarea-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 5px 0;
+    /*border: 2px solid #a5d2e9;*/	
+}
+#chat-bot .form-control {
+    background-color: #15183e;
+    border: 1px solid #288aef;
+	color: #fff;
+	border-radius: 100px;
+    padding: 5px 30px;
+}
+#chat-bot .form-control::placeholder{
+	color: #ddd;
+}
+.textarea-container textarea {
+    flex-grow: 1;
+    border-radius: 20px;
+    padding-right: 50px;
+    /* border: 8px solid #a5d2e9; */
+}
+
+.textarea-container .send-btn {
+    position: absolute;
+    right: 6px;
+    /* top: 80%; */
+    margin:31px 0px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    background-image: linear-gradient(45deg, #c655ef, #5861f0);
+    font-size: 20px;
+    cursor: pointer;
+	color: #fff;
+}
+
+.textarea-container .send-btn:hover {
+    background-color: #12609F;
+}
+
+.timestamp {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+
+.chat-options {
+    margin: 10px 10px;
+}
+
+.chat-options label {
+    margin-right: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.chat-options input[type="radio"] {
+    margin-right: 5px;
+}
+
+.dropdown-container {
+    margin: 10px 0;
+}
+
+.dropdown-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#service-dropdown {
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 14px;
+    border: 8px solid #a5d2e9;
+}
+
+#service-submit-btn {
+    margin-top: 10px;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+.user-message {
+    background-color: #dee04e; /* Light green background */
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin: 0px 0;
+    max-width: 80%;
+    align-self: flex-end;
+    text-align: left;
+}
+
+
+/* Scrollbar for main page (chat-bot container) */
+/* #chat-bot { */
+    /* scrollbar-width: thin; For Firefox */
+    /* scrollbar-color: #2B90C2 #EBF9FF;  */
+/* } */
+
+/* Scrollbar styling for WebKit browsers (Chrome, Edge, Safari) */
+#chat-bot::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+#chat-bot::-webkit-scrollbar-track {
+    /* background: #EBF9FF; Track color */
+    /* border-radius: 15px; */
+    margin: 43px 0;
+    /* padding:20px; */
+}
+
+#chat-bot::-webkit-scrollbar-thumb {
+    background: #71b8db; /* Thumb color */
+    border-radius: 50px;
+    border: 1px solid black;
+    cursor:pointer;
+     /* Make the thumb rounded */
+    /* border: 2px solid #EBF9FF; */
+}
+
+#chat-bot::-webkit-scrollbar-thumb:hover {
+    background: #187bcc; /* Thumb color on hover */
+}
+
+/* Scrollbar for textarea container */
+/* .textarea-container textarea {
+    scrollbar-width: thin; 
+    scrollbar-color: #85BEDC #FFFFFF; 
+} */
+
+.textarea-container textarea::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+    /* border-radius: 5px; */
+}
+
+.textarea-container textarea::-webkit-scrollbar-track {
+    /* background: #FFFFFF;  */
+    margin: 15px 0;
+}
+
+.textarea-container textarea::-webkit-scrollbar-thumb {
+    background: #71b8db; /* Thumb color */
+    border-radius: 50px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.textarea-container textarea::-webkit-scrollbar-thumb:hover {
+    background: #187bcc; /* Thumb color on hover */
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 1px;
+    background-color: #000; /* Adjust color if needed */
+    animation: blink 0.7s step-end infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent;
+    }
+}
+
+/* Scroll-to-Bottom Button */
+.scroll-to-bottom-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background-color: #12609F; /* Same as hover color */
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Hidden by default */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.scroll-to-bottom-btn:hover {
+    background-color: #85BEDC;
+}
+
+.scroll-to-bottom-btn i {
+    font-size: 20px;
+}
+
+/* Show button when active */
+.scroll-to-bottom-btn.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Toast Container */
+.toast-container {
+    position: fixed;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 1000;
+}
+
+/* Toast Message */
+.toast-message {
+    background-color: #2c7dc0; /* Same as your button hover */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    font-size: 14px;
+    max-width: 300px;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/* Show Toast Animation */
+.toast-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sticky-container {
+    position: sticky;
+    top: -58%;
+    z-index: 100;
+    background-color: #EBF9FF;
+    padding: 0px 18px;
+    border-radius: 10px;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.bot {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.message.user .bubble {
+  background-color: #d1e7dd;
+  color: #000;
+}
+
+.message.bot .bubble {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+
+@media (max-width: 1199px) {
+    .cb-img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 991px) {
+    .cb-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .textarea-div{
+        bottom: 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    .cb-img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 575px) {
+    .timestamp {
+        font-size: 0.7rem;
+    }
+    .logo {
+        width:110px;
+    }
+    .toast-message, .chat-bot, .list-group{
+        font-size: 13px;
+    }
+    
+    .textarea-container textarea{
+        font-size: 13px;
+    }
+    .textarea-container .send-btn{
+        right: 0px;
+        margin: 27px 0px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .scroll-to-bottom-btn{
+        width: 30px;
+        height: 30px;
+    }
+    .scroll-to-bottom-btn i{
+        font-size: 14px;
+    }
+    
+    .cb-img {
+        width: 30px;
+        height: 30px;
+    }
+    .bot-img {
+        width: 25px;
+        height: 25px;
+    }
+    h2 {
+        font-size: 18px !important;
+    }
+    h5 {
+        font-size: 15px !important;
+    }
+    .cs-list li {
+        padding: 5px 15px;
+        margin: 0 12px 12px 0;
+    }
+    input.sr-btn {
+        height: 40px !important;
+        font-size: 15px;
+    }
+    .send-btn i {
+        font-size: 15px;
+    }
+    .send-btn {
+        right: 20px;
+    }
+    .cs-list li a {
+        font-size: 15px;
+    }
+    .search-bar.input-group {
+        padding: 10px;
+    }
+}
