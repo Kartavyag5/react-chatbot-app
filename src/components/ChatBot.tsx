@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../styles/chatbot.css';
 import axios from 'axios';
 import { BaseUrl, services } from './constants'
 import BrowsingFlow from './BrowsingFlow';
@@ -19,9 +18,6 @@ const ChatBot: React.FC = () => {
   const [selectedService, setSelectedService] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [showProjectForm, setShowProjectForm] = useState(false);
-  const [email, setEmail] = useState('');
-  const [idea, setIdea] = useState('');
-  const [formErrors, setFormErrors] = useState<{ email?: string; idea?: string }>({});
   const [isBrowsingFlowActive, setIsBrowsingFlowActive] = useState(false);
 
   const [buttonDisable, setButtonDisable] = useState(false);
@@ -163,40 +159,8 @@ const ChatBot: React.FC = () => {
     setSelectedService('');
   };
 
-  const handleProjectSubmit = async () => {
-    const errors: { email?: string; idea?: string } = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!email) errors.email = 'Email is required.';
-    else if (!emailRegex.test(email)) errors.email = 'Invalid email format.';
-    if (!idea) errors.idea = 'Idea is required.';
-
-    setFormErrors(errors);
-
-    if (Object.keys(errors).length > 0) return;
-
-    setMessages(prev => [...prev, { text: `Email: ${email}\nIdea: ${idea}`, sender: 'user', timestamp: new Date() }]);
-    setLoading(true);
-    setShowProjectForm(false);
-
-    try {
-      const res = await axios.post(`${BaseUrl}/get_scope`, { email, idea });
-      setMessages(prev => [...prev, { text: res.data.message || 'Thank you for sharing your idea!', sender: 'bot', timestamp: new Date() }]);
-    } catch (err) {
-      setMessages(prev => [...prev, { text: 'Something went wrong. Please try again later.', sender: 'bot', timestamp: new Date() }]);
-    } finally {
-      setLoading(false);
-      setEmail('');
-      setIdea('');
-      setFormErrors({});
-    }
-  };
-
   const handleProjectCancel = () => {
     setShowProjectForm(false);
-    setEmail('');
-    setIdea('');
-    setFormErrors({});
   };
 
   const formatTime = (date: Date) => {
@@ -249,11 +213,6 @@ const ChatBot: React.FC = () => {
             <div className="chat-bot">
               <div id="chat-messages" className="row p-sm-0 p-2 pt-0">
                 <div className="col-12">
-                  {/* {messages.map((msg, idx) => (
-                    <div key={idx} className={`message ${msg?.sender}`}>
-                      <div className="bubble">{msg?.text}</div>
-                    </div>
-                  ))} */}
                   {messages.map((msg: any, index) => (
                     <div key={index} className={`message-container ${msg.sender}`}>
                       <div className={`timestamp small mb-1 ${msg.sender === 'bot' ? 'text-start' : 'text-end'}`}>
@@ -385,7 +344,7 @@ const ChatBot: React.FC = () => {
                             <ErrorMessage name="email" component="div" className="invalid-feedback d-block" />
                           </div>
 
-                          <div className="mb-2">
+                          <div className="textarea-container mb-2">
                             <Field
                               as="textarea"
                               name="idea"

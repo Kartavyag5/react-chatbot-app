@@ -192,13 +192,14 @@ input.sr-btn {
     align-items: center;
     position: relative;
     margin: 5px 0;
+    flex-direction: column;
     /*border: 2px solid #a5d2e9;*/	
 }
 #chat-bot .form-control {
     background-color: #15183e;
     border: 1px solid #288aef;
 	color: #fff;
-	border-radius: 100px;
+	border-radius: 27px;
     padding: 5px 30px;
 }
 #chat-bot .form-control::placeholder{
@@ -525,12 +526,12 @@ input.sr-btn {
 
 @media (max-width: 575px) {
     .timestamp {
-        font-size: 0.7rem;
+        font-size: 0.65rem !important;
     }
     .logo {
         width:110px;
     }
-    .toast-message, .chat-bot, .list-group{
+    .toast-message, .chat-bot, .list-group, .bubble{
         font-size: 13px;
     }
     

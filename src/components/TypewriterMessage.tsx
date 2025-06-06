@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/Chatbot.css'; // Add CSS here
 
 interface Props {
   text: string;
