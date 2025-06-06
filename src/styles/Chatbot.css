@@ -456,6 +456,8 @@ input.sr-btn {
   padding: 10px 15px;
   border-radius: 20px;
   font-size: 14px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .message.user .bubble {
@@ -468,6 +470,29 @@ input.sr-btn {
   color: #333;
 }
 
+
+.blinking-cursor {
+  display: inline-block;
+  width: 1px;
+  background-color: #000;
+  margin-left: 2px;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.submit-button{
+    border-radius: 20px !important;
+}
+
+.btn-disabled {
+    opacity: 0.5; /* Make the button look visually disabled */
+    cursor: no-drop !important;
+}
 
 @media (max-width: 1199px) {
     .cb-img {
