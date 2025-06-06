@@ -230,7 +230,7 @@ input.sr-btn {
 }
 
 .timestamp {
-    font-size: 0.8rem;
+    font-size: 0.75rem !important;
     color: #888;
     text-align: left;
 }
@@ -477,6 +477,10 @@ input.sr-btn {
   background-color: #000;
   margin-left: 2px;
   animation: blink 1s step-start infinite;
+}
+
+.invalid-feedback{
+    margin-left: 20px; 
 }
 
 @keyframes blink {
